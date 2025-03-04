@@ -1,0 +1,32 @@
+[package]
+name = "noma-hello-app"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+description = "A device that says hello."
+
+[features]
+# NOTE: This feature is enabled in `.vscode/settings.json` and can be used to
+# enable some features when editing the code without impacting the default
+# features.
+rust-analyzer = ["embedded-hal"]
+# Platform support
+embedded-hal = ["noma-platform/embedded-hal"]
+
+[dependencies]
+defmt = "0.3"
+noma-platform = { path = "../../../../platform/noma-platform" }
+
+[dev-dependencies]
+mockall = "0.13"
+noma-platform = { path = "../../../../platform/noma-platform", features = [
+    "test",
+] }
+pollster = { version = "0.4", features = ["macro"] }
+
+[lints]
+workspace = true

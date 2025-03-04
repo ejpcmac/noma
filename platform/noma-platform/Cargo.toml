@@ -1,0 +1,28 @@
+[package]
+name = "noma-platform"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+description = "The platform for Noma Devices."
+
+[features]
+# NOTE: This feature is enabled in `.vscode/settings.json` and can be used to
+# enable some features when editing the code without impacting the default
+# features.
+rust-analyzer = ["embedded-hal"]
+# Platform support
+embedded-hal = ["dep:embedded-hal", "dep:embedded-hal-async"]
+# Test support
+test = ["dep:mockall"]
+
+[dependencies]
+embedded-hal = { version = "1", optional = true, features = ["defmt-03"] }
+embedded-hal-async = { version = "1", optional = true, features = ["defmt-03"] }
+mockall = { version = "0.13", optional = true }
+
+[lints]
+workspace = true

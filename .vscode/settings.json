@@ -1,0 +1,38 @@
+{
+    "editor.formatOnSave": true,
+    "editor.rulers": [80],
+    "evenBetterToml.taplo.bundled": false,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "nix.enableLanguageServer": true,
+    "nix.serverPath": "nixd",
+    "nix.serverSettings": {
+        "nixd": {
+            "formatting": {
+                "command": ["nixpkgs-fmt"]
+            }
+        }
+    },
+    "rewrap.autoWrap.enabled": true,
+    "rust-analyzer.cargo.features": ["rust-analyzer"],
+    "rust-analyzer.check.command": "clippy",
+    "rust-analyzer.server.path": "rust-analyzer",
+    "rust-analyzer.linkedProjects": [
+        "Cargo.toml",
+        "devices/hello/firmware/Cargo.toml",
+        "platform/noma-platform-devboard/Cargo.toml"
+    ],
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.formatOnSave": false
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}
