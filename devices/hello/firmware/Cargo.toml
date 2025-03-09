@@ -12,6 +12,11 @@ license = "GPL-3.0-only"
 repository = "https://github.com/ejpcmac/noma"
 rust-version = "1.85"
 
+[profile.dev]
+opt-level = "z"
+codegen-units = 1
+lto = true
+
 [profile.release]
 panic = "abort"
 opt-level = "z"
