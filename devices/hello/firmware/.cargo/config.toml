@@ -1,6 +1,6 @@
 [alias]
 run-feather = "run --features=feather-nrf52840 -- --chip=nRF52840_xxAA"
-run-nucleo = "run --features=nucleo-l476rg -- --chip=STM32L475RGT"
+run-nucleo = "run --features=nucleo-l476rg -- --chip=STM32L475RGTx"
 
 [build]
 target = "thumbv7em-none-eabihf"
