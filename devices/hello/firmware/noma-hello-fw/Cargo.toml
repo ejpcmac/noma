@@ -17,7 +17,7 @@ rust-analyzer = [
     # "feather-nrf52840",
     "nucleo-l476rg",
 ]
-# Board support.
+# Board support
 feather-nrf52840 = ["noma-platform-devboard/feather-nrf52840"]
 nucleo-l476rg = [
     "embassy-time/tick-hz-1_000",
