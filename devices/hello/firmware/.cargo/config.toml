@@ -11,6 +11,7 @@ rustflags = [
     "-C", "linker=flip-link",
     "-C", "link-arg=-Tlink.x",
     "-C", "link-arg=-Tdefmt.x",
+    "-C", "link-arg=--emit-relocs",
 ]
 
 [env]

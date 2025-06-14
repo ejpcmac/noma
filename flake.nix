@@ -19,6 +19,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    naersk = {
+      url = "github:nix-community/naersk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     git-z = {
       url = "github:ejpcmac/git-z";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -46,6 +51,22 @@
             let
               git-z = inputs'.git-z.packages.git-z;
 
+              naersk = pkgs.callPackage inputs.naersk {
+                cargo = rust-toolchain;
+                rustc = rust-toolchain;
+              };
+
+              twiggy = naersk.buildPackage {
+                name = "twiggy";
+                version = "unstable-2025-05-10";
+                src = pkgs.fetchFromGitHub {
+                  owner = "rustwasm";
+                  repo = "twiggy";
+                  rev = "f6230a8a0f0d262695a66016bbd92a4f1aef46ee";
+                  hash = "sha256-1oAKSefWofMRYSNrCSW/j0h4bNnFD2oIdxtEiEDb9Ng=";
+                };
+              };
+
               buildToolchain = with pkgs; [
                 rust-toolchain
                 flip-link
@@ -70,16 +91,17 @@
               ];
 
               developmentTools = with pkgs; [
+                cargo-binutils
                 cargo-bloat
                 cargo-outdated
                 cargo-watch
+                gcc-arm-embedded
                 git
                 git-z
                 gitAndTools.gitflow
-                cargo-binutils
-                gcc-arm-embedded
                 openocd
                 probe-rs
+                twiggy
               ];
 
               ideEnv = [
